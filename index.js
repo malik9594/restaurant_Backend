@@ -2,6 +2,7 @@ import express from 'express';
 import userRoutes  from "./routes/userRouter.js";
 import postRoutes from './routes/postRouter.js';
 import authRoutes from './routes/AuthRouter.js'
+import cookieParser from 'cookie-parser';
 import cors from 'cors';
 
 const app = express();
@@ -12,6 +13,7 @@ app.use(cors({
     credentials:true,
 }));
 app.use(express.json());
+app.use(cookieParser())
 app.use('/api/auth', authRoutes);
 app.use('/api/users', userRoutes);
 app.use('/api/post', postRoutes);
