@@ -1,9 +1,20 @@
 import mysql from 'mysql';
 
 
-export const db = mysql.createConnection({
-    host:"localhost",
-    user:"root",
-    password:'Hassan@3133',
-    database:'blog'
+const db = mysql.createConnection({
+    host: 'localhost',
+    user: 'root',
+    password: '',
+    database: 'blog'
 })
+
+
+db.connect(function(err){
+    if(err){
+        console.log("Connection is not established");
+    }
+    else{
+        console.log("mysql connection is established.")
+    }
+})
+export default db;
